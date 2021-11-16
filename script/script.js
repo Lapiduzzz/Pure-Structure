@@ -185,3 +185,20 @@ const lanternScript = () =>{
     slider('.project_slider_wrapper','.lantern',3, 10000,true, true, true)
     slider('.project_slider_wrapper2','.location',4, 5000,true, true, true)
 }
+
+/*                  animation                  */
+
+const animation = (selector, animation, second) =>{
+    let isAnimated = document.querySelector(`${selector}`)
+
+    document.addEventListener('scroll', ()=>{
+        let windowTop = window.pageYOffset
+        if (windowTop >= isAnimated.offsetTop){
+            isAnimated.style = `animation: ${animation} ${second}s ease-in-out;`
+        }
+    })
+}
+animation('.content_page_project', 'fadeIn', 0.6)
+animation('.content_page_introduction', 'fadeIn', 0.6)
+animation('.content_page_description', 'fadeIn', 0.6)
+animation('.content_page_philosophy', 'fadeIn', 0.6)
