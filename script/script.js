@@ -199,7 +199,7 @@ const animation = (selector, animation, second) =>{
     })
 }
 
-if (document.location.pathname.endsWith('index.html')) {
+if (document.location.href.endsWith('/') || document.location.href.endsWith('index.html')) {
     animation('.content_page_project', 'fadeIn', 0.6)
     animation('.content_page_introduction', 'fadeIn', 0.6)
     animation('.content_page_description', 'fadeIn', 0.6)
