@@ -105,13 +105,13 @@ const sticky = () =>{
     let contentBlockOffsetTop = contentBlock.offsetTop + contentBlock.offsetHeight + windowSize - image.offsetHeight
 
     let stuck = () =>{
-        if (window.pageYOffset <= imageOffsetTop) {
+        if (window.scrollY <= imageOffsetTop) {
             image.style = 'position: absolute; top: 120px; bottom: auto;'
         }
-        if (window.pageYOffset >= imageOffsetTop) {
+        if (window.scrollY >= imageOffsetTop) {
             image.style = 'position: fixed; top: 120px;'
         }
-        if(window.pageYOffset >= contentBlockOffsetTop){
+        if(window.scrollY >= contentBlockOffsetTop){
             image.style = 'position: absolute; top: auto; bottom: 0;'
         }
 
@@ -129,7 +129,7 @@ const dropElement = () =>{
         let header = el.querySelector('.drop_item_header')
         let hide = true
 
-        header.addEventListener('click', (e)=>{
+        header.addEventListener('click', ()=>{
             if (hide === true) {
                 let arrow = el.querySelector('.svg_replaced')
                 let contentBlock = el.querySelector('.drop_item_content')
@@ -192,13 +192,16 @@ const animation = (selector, animation, second) =>{
     let isAnimated = document.querySelector(`${selector}`)
 
     document.addEventListener('scroll', ()=>{
-        let windowTop = window.pageYOffset
+        let windowTop = window.scrollY
         if (windowTop >= isAnimated.offsetTop){
             isAnimated.style = `animation: ${animation} ${second}s ease-in-out;`
         }
     })
 }
-animation('.content_page_project', 'fadeIn', 0.6)
-animation('.content_page_introduction', 'fadeIn', 0.6)
-animation('.content_page_description', 'fadeIn', 0.6)
-animation('.content_page_philosophy', 'fadeIn', 0.6)
+
+if (document.location.pathname.endsWith('index.html')) {
+    animation('.content_page_project', 'fadeIn', 0.6)
+    animation('.content_page_introduction', 'fadeIn', 0.6)
+    animation('.content_page_description', 'fadeIn', 0.6)
+    animation('.content_page_philosophy', 'fadeIn', 0.6)
+}

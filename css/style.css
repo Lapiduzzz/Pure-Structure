@@ -9,7 +9,6 @@ body, html {
     width: 100vw;
     height: fit-content;
     overflow-x: hidden;
-    overflow-y: overlay;
     box-sizing: border-box;
     font-family: 'Red Hat Mono', monospace;
     font-size: 21px;
@@ -1135,11 +1134,11 @@ a{
         flex-direction: column;
     }
     .drop_left{
-        padding-right: 0%;
+        padding-right: 0;
     }
     .drop_right{
         flex: 1;
-        padding-left: 0%;
+        padding-left: 0;
     }
     .drop_left strong{
         font-size: 4.5vw;
